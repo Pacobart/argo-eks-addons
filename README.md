@@ -42,19 +42,20 @@ spec:
   source:
     repoURL: https://github.com/Pacobart/argo-eks-addons.git
     targetRevision: HEAD
-    path: addons
+    path: chart
     helm:
-      release: add-ons
+      releaseName: add-ons
       values: |
         region: us-west-2
         account: XXXXXXXXXXXX
         clusterName: devops-eks
         environment: dev
-        
+        domain_name_suffix: mydomain.com
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
 ```
+
 ## How to setup new addon
 
 1. create new directory in `addons`
