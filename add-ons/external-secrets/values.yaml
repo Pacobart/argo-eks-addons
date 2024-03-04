@@ -1,3 +1,7 @@
 external-secrets:
   extraArgs:
     loglevel: "debug"
+aws:
+  accountId:
+  region:
+  
