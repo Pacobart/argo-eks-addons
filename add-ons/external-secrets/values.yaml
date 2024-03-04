@@ -1,0 +1,3 @@
+external-secrets:
+  extraArgs:
+    loglevel: "debug"
