@@ -8,6 +8,3 @@ external-dns:
     enabled: false
   zoneIdFilters:
   txtOwnerId:
-  image:
-    repository: public.ecr.aws/bitnami/external-dns
-    tag: 0.14.1
