@@ -7,5 +7,3 @@ external-dns:
   policy: sync
   serviceMonitor:
     enabled: false
-#  zoneIdFilters:
-#  txtOwnerId:
