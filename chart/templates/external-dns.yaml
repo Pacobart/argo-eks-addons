@@ -10,9 +10,12 @@ spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: add-ons/external-dns
+    path: add-ons/external-dns/{{ .Values.environment }}
     targetRevision: {{ .Values.targetRevision }}
     helm:
+      valueFiles:
+      - values.yaml
+      - ../global-values.yaml
       values: |
         external-dns:
         {{- toYaml .Values.externalDns | nindent 10 }}

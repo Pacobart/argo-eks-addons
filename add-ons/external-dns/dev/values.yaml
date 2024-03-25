@@ -1,0 +1,11 @@
+# Environment specific values
+external-dns:
+  #serviceAccount:
+  #  create: true
+  #  name: "external-dns"
+  #provider: "aws"
+  #policy: sync
+  #serviceMonitor:
+  #  enabled: false
+  zoneIdFilters:
+  txtOwnerId:

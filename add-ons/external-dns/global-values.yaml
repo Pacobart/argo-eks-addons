@@ -1,3 +1,4 @@
+# Global values
 external-dns:
   serviceAccount:
     create: true
@@ -6,5 +7,5 @@ external-dns:
   policy: sync
   serviceMonitor:
     enabled: false
-  zoneIdFilters:
-  txtOwnerId:
+#  zoneIdFilters:
+#  txtOwnerId:
