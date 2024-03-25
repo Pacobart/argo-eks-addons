@@ -1,38 +1,35 @@
-{{- if and (.Values.kubeStateMetrics) (.Values.kubeStateMetrics.enable) -}}
+{{- if and (.Values.kyverno) (.Values.kyverno.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-state-metrics
+  name: kyverno
   namespace: {{ .Values.argoNamespace | default "argocd" }}
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: add-ons/kube-state-metrics
+    path: add-ons/kyverno
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        kube-state-metrics:
-        {{- toYaml .Values.kubeStateMetrics | nindent 10 }}
-      parameters:
-      - name: kube-state-metrics.serviceAccount.name
-        value: {{ .Values.kubeStateMetrics.serviceAccountName }}
+        kyverno:
+        {{- toYaml .Values.kyverno | nindent 10 }}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
-    namespace: kube-state-metrics
+    namespace: kyverno
   syncPolicy:
     automated:
       prune: true
     syncOptions:
-      - CreateNamespace={{ .Values.kubeStateMetrics.createNamespace }}
+      - CreateNamespace={{ .Values.kyverno.createNamespace }}
     retry:
       limit: 1
       backoff:
         duration: 5s
         factor: 2
         maxDuration: 1m
-{{- end -}}
+  {{- end -}}
