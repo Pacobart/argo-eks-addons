@@ -63,7 +63,7 @@ spec:
 3. create new template in `chart\templates`
 4. add variables to `chart/values.yaml`
 
-## How to apply different values to environments
+## How to apply different values to environments (See exzternal-dns addon)
 
 1. Add a valueFiles section into the chart/templates/<addon>.yaml file. Ex: https://github.com/Pacobart/argo-eks-addons/blob/main/chart/templates/ingress-nginx.yaml#L16-L18
 2. Create `values-<environemnt>.yaml` file in add-ons/<addon>
@@ -74,6 +74,7 @@ spec:
 1. restructure addon directory in `add-ons/<addon>` like the following
 ```
 ingress-nginx
+-- global-values.yaml
 -- dev
 ---- Chart.yaml
 ---- values.yaml
