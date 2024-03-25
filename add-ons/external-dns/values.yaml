@@ -10,4 +10,4 @@ external-dns:
   txtOwnerId:
   image:
     repository: public.ecr.aws/bitnami/external-dns
-    tag: v0.14.1
+    tag: 0.14.1
