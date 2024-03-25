@@ -3,8 +3,6 @@ external-dns:
   serviceAccount:
     create: true
     name: "external-dns"
-    annotations:
-      setting-type: global
   provider: "aws"
   policy: sync
   serviceMonitor:
