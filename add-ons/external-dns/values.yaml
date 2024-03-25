@@ -9,5 +9,5 @@ external-dns:
   zoneIdFilters:
   txtOwnerId:
   image:
-    repository: registry.k8s.io/external-dns/external-dns
+    repository: public.ecr.aws/bitnami/external-dns
     tag: v0.14.1
